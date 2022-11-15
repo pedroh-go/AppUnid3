@@ -9,7 +9,12 @@
     <string name="clique_me">Clique Me</string>
     <string name="seja_bem_vindo">Seja Bem Vindo</string>
     <string name="hint">Escreva Algo</string>
+    <string name="primeira_opcao">Primeira Opção</string>
+    <string name="segunda_opcao">Segunda Opção</string>
+    <string name="verifica_checked">Verifica CheckBox</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

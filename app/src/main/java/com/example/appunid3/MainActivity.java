@@ -17,6 +17,7 @@ import com.example.appunid3.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,15 +35,21 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText editText;
 
+    CheckBox checkBox1;
+    CheckBox checkBox2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.textView);
-        count = 0;
+//        textView = (TextView) findViewById(R.id.textView);
+//        count = 0;
+//
+//        editText = (EditText) findViewById(R.id.editText);
 
-        editText = (EditText) findViewById(R.id.editText);
+        checkBox1 = (CheckBox) findViewById(R.id.checkBox_1);
+        checkBox2 = (CheckBox) findViewById(R.id.checkBox_2);
 
 //        binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
@@ -80,6 +87,49 @@ public class MainActivity extends AppCompatActivity {
         String txt = editText.getText().toString();
         Toast toast = Toast.makeText(this, "Você escreveu: "+txt, Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    /**
+     * Quando o checkBox é clicado
+     * @param view
+     */
+    public void onCheckBoxClicked(View view){
+        boolean checked = ((CheckBox)view).isChecked();
+        switch (view.getId()){
+            case R.id.checkBox_1:
+                if(checked){
+                    Toast.makeText(this, "Você selecionou a primeira opção", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "Você cancelou a primeira opção", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.checkBox_2:
+                if(checked){
+                    Toast.makeText(this, "Você selecionou a segunda opção", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(this, "Você cancelou a segunda opção", Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+    }
+
+    /**
+     * Quando o botão de verificar for clicado
+     * @param view
+     */
+    public void onClick2(View view){
+        boolean checked_1 = checkBox1.isChecked();
+        boolean checked_2 = checkBox2.isChecked();
+
+        if(checked_1 && checked_2){
+            Toast.makeText(this, "Você selecionou as duas opções", Toast.LENGTH_SHORT).show();
+        }else if(checked_1){
+            Toast.makeText(this, "Você selecionou apenas a primeira opção", Toast.LENGTH_SHORT).show();
+        }else if(checked_2){
+            Toast.makeText(this, "Você selecionou apenas a segunda opção", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Você não selecionou nenhuma opção", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
